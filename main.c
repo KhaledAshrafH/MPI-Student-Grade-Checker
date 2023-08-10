@@ -3,12 +3,10 @@
 #include "mpi.h"
 
 /*
-    Ahmed Sayed Hassan Youssef  => 20190034
-    Khaled Ashraf Hanafy        => 20190186
-
+    Khaled Ashraf Hanafy Mahmoud  => 20190186
+    Ahmed Sayed Hassan Youssef    => 20190034
 */
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
     // file
     const int NumberOfStudent = 20;
     char line[50];
@@ -39,22 +37,17 @@ int main(int argc, char *argv[])
     const int process = p - 1;
 
     int arr[process];
-    double Students_per_process = (double)NumberOfStudent / (p - 1);
+    double Students_per_process = (double) NumberOfStudent / (p - 1);
 
     if (my_rank == 0) /// master
     {
-        if (process == 2)
-        {
-            for (int i = 0; i < process; i++)
-            {
+        if (process == 2) {
+            for (int i = 0; i < process; i++) {
                 arr[i] = Students_per_process + 0.5;
                 sum += arr[i];
             }
-        }
-        else
-        {
-            for (int i = 0; i < p - 2; i++)
-            {
+        } else {
+            for (int i = 0; i < p - 2; i++) {
                 arr[i] = Students_per_process + 0.5;
                 sum += arr[i];
             }
@@ -63,18 +56,15 @@ int main(int argc, char *argv[])
         }
 
         ///////////////////////////////////////////
-        if (file == NULL)
-        {
+        if (file == NULL) {
             printf("error\n");
             return 0;
         }
         int k = 0;
-        while (fgets(line, sizeof(line), file))
-        {
+        while (fgets(line, sizeof(line), file)) {
             int i = 0, j = 0;
             char temp1[10] = "";
-            while (line[i] != ' ')
-            {
+            while (line[i] != ' ') {
                 temp1[j++] += line[i++];
             }
 
@@ -83,8 +73,7 @@ int main(int argc, char *argv[])
             j = 0;
             i++;
             char temp2[3] = "";
-            while (line[i] != '\0')
-            {
+            while (line[i] != '\0') {
                 temp2[j++] += line[i++];
             }
             sscanf(temp2, "%d", &grade[k]);
@@ -101,14 +90,12 @@ int main(int argc, char *argv[])
             printf("master send %d to process %d\n", arr[i - 1], i);
         }
         FinalPassed = 0;
-        for (int i = 1; i < p; i++)
-        {
+        for (int i = 1; i < p; i++) {
             MPI_Recv(&parthial_sum, 1, MPI_INT, i, tag, MPI_COMM_WORLD, &status);
             FinalPassed += parthial_sum;
         }
         printf("Total Number Of Students Passed The Exam is %d out of %d\n", FinalPassed, NumberOfStudent);
-    }
-    else // other
+    } else // other
     {
 
         MPI_Recv(&count, 1, MPI_INT, 0, tag, MPI_COMM_WORLD, &status);
@@ -116,15 +103,11 @@ int main(int argc, char *argv[])
         MPI_Recv(&ID, count, MPI_INT, 0, tag, MPI_COMM_WORLD, &status);
         PassedTheExam = 0;
 
-        for (int i = 0; i < count; i++)
-        {
-            if (grade[i] >= 60)
-            {
+        for (int i = 0; i < count; i++) {
+            if (grade[i] >= 60) {
                 printf("%d Passed The Exam\n", ID[i]);
                 PassedTheExam++;
-            }
-            else
-            {
+            } else {
                 printf("%d Failed. Please Repeat The Exam\n", ID[i]);
             }
         }
