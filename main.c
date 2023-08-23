@@ -2,10 +2,6 @@
 #include <string.h>
 #include "mpi.h"
 
-/*
-    Khaled Ashraf Hanafy Mahmoud  => 20190186
-    Ahmed Sayed Hassan Youssef    => 20190034
-*/
 int main(int argc, char *argv[]) {
     // file
     const int NumberOfStudent = 20;
