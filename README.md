@@ -57,12 +57,14 @@ Replace <num_processes> with the desired number of MPI processes to be used for 
 
 Contributions are welcome! If you find any issues or have suggestions for improvement, please open an issue or submit a pull request.
 
+## Authors
+
+- [Khaled Ashraf Hanafy Mahmoud - 20190186](https://github.com/KhaledAshrafH).
+- [ Ahmed Sayed Hassan Youssef - 20190034](https://github.com/AhmedSayed117).
+
 
 ## License
 
 This project is licensed under the [MIT License](LICENSE.md).
 
-## Authors
 
-- [Khaled Ashraf Hanafy Mahmoud - 20190186](https://github.com/KhaledAshrafH).
-- [ Ahmed Sayed Hassan Youssef - 20190034](https://github.com/AhmedSayed117).
