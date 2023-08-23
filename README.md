@@ -60,7 +60,8 @@ Contributions are welcome! If you find any issues or have suggestions for improv
 ## Authors
 
 - [Khaled Ashraf Hanafy Mahmoud - 20190186](https://github.com/KhaledAshrafH).
-- [ Ahmed Sayed Hassan Youssef - 20190034](https://github.com/AhmedSayed117).
+- [Ahmed Sayed Hassan Youssef - 20190034](https://github.com/AhmedSayed117).
+- [Samah Moustafa Hussien Mahmoud - 20190248](https://github.com/Samah-20190248).
 
 
 ## License
